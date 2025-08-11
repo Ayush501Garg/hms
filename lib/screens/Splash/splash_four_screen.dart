@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:hms/auth/welcome_screen.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/core/app_images.dart';
 import 'package:hms/core/app_text_styles.dart';
@@ -27,7 +28,7 @@ class _SplashFourScreenState extends State<SplashFourScreen> {
     });
 
     Timer(const Duration(milliseconds: 1200), () {
-      // replaceScreen(context, WelcomeScreen());
+      replaceScreen(context, WelcomeScreen());
     });
   }
 
