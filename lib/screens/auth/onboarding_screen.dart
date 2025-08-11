@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hms/auth/signIn_screen.dart';
+import 'package:hms/screens/auth/signIn_screen.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/utils/navigation_utils.dart';
 import 'package:hms/utils/size_utils.dart';

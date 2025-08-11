@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:hms/auth/onboarding_screen.dart';
+import 'package:hms/screens/auth/onboarding_screen.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/core/app_text_styles.dart';
 import 'package:hms/utils/size_utils.dart';
