@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hms/auth/signIn_screen.dart';
 import 'package:hms/core/app_colors.dart';
+import 'package:hms/utils/navigation_utils.dart';
 import 'package:hms/utils/size_utils.dart';
 import 'package:hms/widgets/custome_button.dart';
 
@@ -102,79 +104,75 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   void finishOnboarding() {
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(builder: (_) => const MainScreen()),
-    // );
+    nextscreen(context, SigninScreen());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      body: Column(
+      body: Stack(
         children: [
-          const SizedBox(height: 60),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 20.0, top: 10),
-              child: GestureDetector(
-                onTap: () {
-                  if (currentPage == onboardingData.length - 1) {
-                    finishOnboarding();
-                  } else {
-                    skip();
-                  }
-                },
-                child: Text(
-                  currentPage == onboardingData.length - 1
-                      ? 'Continue'
-                      : 'Skip',
-                  style: TextStyle(
-                    color: AppColors.primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+          Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: onboardingData.length,
+                  onPageChanged: (index) {
+                    setState(() => currentPage = index);
+                  },
+                  itemBuilder: (context, index) {
+                    final item = onboardingData[index];
+                    return buildOnboardingContent(
+                      // topContent: nightingaleScoreCard(),
+                      imagepath: item['image']!,
+                      title: item['title']!,
+                      subtitle: item['subtitle']!,
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  circleArrowButton(
+                    icon: Icons.arrow_back,
+                    onPressed: () => goToPage(currentPage - 1),
                   ),
+                  const SizedBox(width: 20),
+                  circleArrowButton(
+                    icon: Icons.arrow_forward,
+                    onPressed: () => goToPage(currentPage + 1),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 40),
+            ],
+          ),
+
+          Positioned(
+            top: 40,
+            right: 20,
+            child: GestureDetector(
+              onTap: () {
+                if (currentPage == onboardingData.length - 1) {
+                  finishOnboarding();
+                } else {
+                  skip();
+                }
+              },
+              child: Text(
+                currentPage == onboardingData.length - 1 ? 'Continue' : 'Skip',
+                style: TextStyle(
+                  color: AppColors.primaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
                 ),
               ),
             ),
           ),
-          verticalSpace(20),
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: onboardingData.length,
-              onPageChanged: (index) {
-                setState(() => currentPage = index);
-              },
-              itemBuilder: (context, index) {
-                final item = onboardingData[index];
-                return buildOnboardingContent(
-                  // topContent: nightingaleScoreCard(),
-                  imagepath: item['image']!,
-                  title: item['title']!,
-                  subtitle: item['subtitle']!,
-                );
-              },
-            ),
-          ),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              circleArrowButton(
-                icon: Icons.arrow_back,
-                onPressed: () => goToPage(currentPage - 1),
-              ),
-              const SizedBox(width: 20),
-              circleArrowButton(
-                icon: Icons.arrow_forward,
-                onPressed: () => goToPage(currentPage + 1),
-              ),
-            ],
-          ),
-          const SizedBox(height: 40),
         ],
       ),
     );
@@ -190,8 +188,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Column(
         children: [
-          Image.asset(imagepath, height: 300, width: 350),
-          Spacer(flex: 9),
+          Container(
+            height: 400,
+            color: AppColors.lightprimaryColor,
+            child: Image.asset(imagepath, height: 300, width: 350),
+          ),
+          Spacer(flex: 2),
           Text(
             title,
             textAlign: TextAlign.center,
