@@ -17,10 +17,10 @@ class SigninScreen extends StatefulWidget {
 }
 
 class _SigninScreenState extends State<SigninScreen> {
+// <<<<<<< HEAD
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool keepSignedIn = false;
-  bool obscurePassword = true;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -221,6 +221,7 @@ class _SigninScreenState extends State<SigninScreen> {
           ),
         ),
       ),
-    );
+    );  
   }
 }
+
