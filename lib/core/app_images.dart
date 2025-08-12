@@ -9,4 +9,10 @@ class AppImages {
   static const String img4 = 'assets/images/4.png';
   static const String img5 = 'assets/images/5.png';
   static const String img6 = 'assets/images/6.png';
+
+  static const String emailIcon = 'assets/images/email.png';
+  static const String smsIcon = 'assets/images/sms.png';
+  static const String twoFAIcon = 'assets/images/2fa.png';
+  static const String lock = 'assets/images/lock.png';
+  static const String mail = 'assets/images/mail.png';
 }

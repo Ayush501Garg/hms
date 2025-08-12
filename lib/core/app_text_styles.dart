@@ -38,6 +38,7 @@ final TextStyle blackText16600 = GoogleFonts.poppins(
   color: Colors.black,
 );
 
+
 final TextStyle blackText24600 = GoogleFonts.poppins(
   fontSize: 24,
   fontWeight: FontWeight.w600,
@@ -94,6 +95,11 @@ final TextStyle blackText18400 = GoogleFonts.poppins(
 
 final TextStyle greyText14400 = GoogleFonts.poppins(
   fontSize: 14,
+  fontWeight: FontWeight.w400,
+  color: AppColors.greyColor,
+);
+final TextStyle greyText16400 = GoogleFonts.poppins(
+  fontSize: 16,
   fontWeight: FontWeight.w400,
   color: AppColors.greyColor,
 );
