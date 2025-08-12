@@ -1,11 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-// <<<<<<<< HEAD:lib/screens/onboarding/welcome_screen.dart
 import 'package:hms/screens/onboarding/onboarding_screen.dart';
-// ========
-import 'package:hms/screens/auth/onboarding_screen.dart';
-// >>>>>>>> b38fbafde440867abf28e48aebaac2a36f86fc17:lib/screens/auth/welcome_screen.dart
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/core/app_text_styles.dart';
 import 'package:hms/utils/size_utils.dart';
