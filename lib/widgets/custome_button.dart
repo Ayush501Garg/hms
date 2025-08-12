@@ -8,11 +8,15 @@ Widget customElevatedButton({
   // Color textColor = Colors.white,
   IconData? icon, // optional
   VoidCallback? onPressed,
-  Color backgroundColor = const Color(0xFF14B8A6),
+  required Color backgroundColor, //= const Color(0xFF14B8A6),
   double borderRadius = 10,
   double paddingVertical = 14,
   double paddingHorizontal = 24,
-}) {
+  IconData? righticon,
+  final String? imagepath, // optional
+  
+}) // optional
+{
   return ElevatedButton(
     onPressed: onPressed,
     style: ElevatedButton.styleFrom(
@@ -26,34 +30,43 @@ Widget customElevatedButton({
       ),
       elevation: 2,
     ),
-    child: Row( // Use min to fit content
+    child: Row(
+      // Use min to fit content
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (icon != null) ...[
-          Icon(icon, size: 20),
+          Icon(icon, size: 20, color: Colors.white),
           SizedBox(width: 8),
         ],
-        Text(
-          title,
-          style: whiteText16600
-        ),
+
+        if (imagepath != null) ...[
+          Image.asset(imagepath, height: 20, width: 20),
+          SizedBox(width: 8),
+        ],
+
+        Text(title, style: whiteText16600),
+        if (righticon != null) ...[
+          SizedBox(width: 8),
+          Icon(righticon, size: 20, color: Colors.white),
+        ],
       ],
     ),
   );
 }
 
- Widget circleArrowButton({required IconData icon, required VoidCallback onPressed}) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        shape: const CircleBorder(),
-        padding: const EdgeInsets.all(20),
-        backgroundColor: const Color(0xFF1E293B), // Almost black like image
-        foregroundColor: Colors.white,
-        elevation: 4,
-      ),
-      child: Icon(icon),
-    );
-  }
-
-
+Widget circleArrowButton({
+  required IconData icon,
+  required VoidCallback onPressed,
+}) {
+  return ElevatedButton(
+    onPressed: onPressed,
+    style: ElevatedButton.styleFrom(
+      shape: const CircleBorder(),
+      padding: const EdgeInsets.all(20),
+      backgroundColor: const Color(0xFF1E293B), // Almost black like image
+      foregroundColor: Colors.white,
+      elevation: 4,
+    ),
+    child: Icon(icon),
+  );
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hms/auth/signIn_screen.dart';
+import 'package:hms/screens/auth/signIn_screen.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/utils/navigation_utils.dart';
 import 'package:hms/utils/size_utils.dart';
@@ -138,18 +138,40 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   circleArrowButton(
-                    icon: Icons.arrow_back,
+                    icon: Icons.arrow_back_ios_new,
                     onPressed: () => goToPage(currentPage - 1),
                   ),
                   const SizedBox(width: 20),
                   circleArrowButton(
-                    icon: Icons.arrow_forward,
+                    icon: Icons.arrow_forward_ios,
                     onPressed: () => goToPage(currentPage + 1),
                   ),
                 ],
               ),
               const SizedBox(height: 40),
             ],
+          ),
+
+          Positioned(
+            top: 70,
+            left: 0,
+            right: 0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: LinearProgressIndicator(
+                  value:
+                      (currentPage + 1) /
+                      onboardingData.length, // Progress fraction
+                  backgroundColor: Colors.grey[300], // Unfilled color
+                  valueColor: AlwaysStoppedAnimation(
+                    AppColors.primaryColor,
+                  ), // Filled color
+                  minHeight: 6, // Thickness of the bar
+                ),
+              ),
+            ),
           ),
 
           Positioned(
@@ -189,29 +211,35 @@ class _OnboardingPageState extends State<OnboardingPage> {
       child: Column(
         children: [
           Container(
-            height: 400,
+            height: 500,
             color: AppColors.lightprimaryColor,
             child: Image.asset(imagepath, height: 300, width: 350),
           ),
           Spacer(flex: 2),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-              height: 1.4,
+          Padding(
+            padding: const EdgeInsets.only(left: 25, right: 25),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+                height: 1.4,
+              ),
             ),
           ),
           const SizedBox(height: 16),
-          Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.grey.shade600,
-              height: 1.5,
+          Padding(
+            padding: const EdgeInsets.only(left: 25, right: 25),
+            child: Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.grey.shade600,
+                height: 1.5,
+              ),
             ),
           ),
           const Spacer(),
