@@ -116,6 +116,11 @@ final TextStyle greyText14400 = GoogleFonts.poppins(
   fontWeight: FontWeight.w400,
   color: AppColors.greyColor,
 );
+final TextStyle greyText16400 = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  color: AppColors.greyColor,
+);
 
 final TextStyle greyText12400 = GoogleFonts.poppins(
   fontSize: 12,

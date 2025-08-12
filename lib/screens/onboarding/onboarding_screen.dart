@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hms/screens/auth/forgot_password_option_screen.dart';
 import 'package:hms/screens/auth/signIn_screen.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/utils/navigation_utils.dart';
-import 'package:hms/utils/size_utils.dart';
 import 'package:hms/widgets/custome_button.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -104,7 +104,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   void finishOnboarding() {
-    nextscreen(context, SigninScreen());
+    nextscreen(context, ForgotPasswordOptionScreen());
   }
 
   @override

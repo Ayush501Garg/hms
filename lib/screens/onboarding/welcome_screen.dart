@@ -1,200 +1,163 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:hms/screens/onboarding/onboarding_screen.dart';
 import 'package:hms/core/app_colors.dart';
+import 'package:hms/core/app_images.dart';
 import 'package:hms/core/app_text_styles.dart';
 import 'package:hms/utils/size_utils.dart';
-import 'package:hms/widgets/custome_button.dart';
 
-class WelcomeScreen extends StatefulWidget {
+class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
-}
-
-class _WelcomeScreenState extends State<WelcomeScreen> {
-  @override
   Widget build(BuildContext context) {
+    double w = screenWidth(context);
+    double h = screenHeight(context);
+
     return Scaffold(
       backgroundColor: AppColors.white,
-      body: Stack(
-        children: [
-          verticalSpace(20),
-          Positioned(child:Image.asset(
-            "assets/images/bgimage.png", // Replace with your background image path
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
-          )),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          children: [
+            verticalSpace(h * 0.12),
 
-
-          Column(
-            children: [          
-              verticalSpace(60),
-              Center(
-                child: circularFeatureRingSimple(
-                  centerImage: 'assets/images/logo1.png',
-                  surroundingImages: [
-                    'assets/images/1.png',
-                    'assets/images/2.png',
-                    'assets/images/3.png',
-                    'assets/images/4.png',
-                    'assets/images/5.png',
-                    'assets/images/6.png',
-                  ],
-                ),
-              ),
-
-              Expanded(child: buildWelcomeContent()),
-              // Add any additional widgets like a footer or navigation buttons here
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildWelcomeContent() {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Welcome to nightingale\nUI Kit!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Text(
-                'We bring all of your health information\ntogether on one app, with the power of AI',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-              ),
-              const SizedBox(height: 40),
-              SizedBox(
-                width: double.infinity,
-                child: customElevatedButton(
-                  title: 'Get Started',
-                  // icon: Icons.arrow_forward,
-                  onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (_) => OnboardingPage()));
-
-                    // Navigate to the next screen
-                  },
-                  backgroundColor: AppColors.primaryColor,
-                ),
-              ),
-              const SizedBox(height: 20),
-              RichText(
-                text: TextSpan(
-                  text: 'Already have an account? ',
-                  style: TextStyle(color: Colors.black),
-                  children: [
-                    TextSpan(
-                      text: 'Sign In.',
-                      style: TextStyle(
-                        color: Color(0xFF00C6A2),
-                        fontWeight: FontWeight.bold,
+            /// Circular images + center logo + ring
+            SizedBox(
+              height: h * 0.35,
+              width: double.infinity,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  // Circular outline
+                  Container(
+                    height: 250,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: AppColors.primaryColor.withOpacity(0.6),
+                        width: 2,
                       ),
-                      // Add gesture recognizer if using TapGestureRecognizer
+                    ),
+                  ),
+
+                  // Center Logo
+                  Image.asset(
+                    AppImages.logoGreen,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
+
+                  // Top (robot)
+                  Positioned(top: 0, child: _circleImage(AppImages.img1)),
+
+                  // Top-Left (stethoscope)
+                  Positioned(
+                    top: 60,
+                    left: 30,
+                    child: _circleImage(AppImages.img2),
+                  ),
+
+                  // Top-Right (file)
+                  Positioned(
+                    top: 60,
+                    right: 30,
+                    child: _circleImage(AppImages.img3),
+                  ),
+
+                  // Bottom-Left (virus)
+                  Positioned(
+                    bottom: 60,
+                    left: 30,
+                    child: _circleImage(AppImages.img4),
+                  ),
+
+                  // Bottom-Right (doctor)
+                  Positioned(
+                    bottom: 60,
+                    right: 30,
+                    child: _circleImage(AppImages.img5),
+                  ),
+
+                  // Bottom (pills)
+                  Positioned(bottom: 0, child: _circleImage(AppImages.img6)),
+                ],
+              ),
+            ),
+
+            verticalSpace(h * 0.1),
+
+            Text(
+              "Welcome to nightingale\nUI Kit!",
+              textAlign: TextAlign.center,
+              style: blackText24600,
+            ),
+            verticalSpace(10),
+            Text(
+              "We bring all of your health information\ntogether on one app, with the power of AI",
+              textAlign: TextAlign.center,
+              style: greyText14400,
+            ),
+
+            verticalSpace(50),
+
+            /// Get Started Button
+            SizedBox(
+              width: double.infinity,
+              height: 48,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Get Started", style: whiteText16400),
+                    horizontalSpace(6),
+                    const Icon(
+                      Icons.arrow_forward,
+                      size: 18,
+                      color: Colors.white,
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+
+            verticalSpace(20),
+
+            /// Sign In
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Already have an account? ", style: greyText12400),
+                GestureDetector(
+                  onTap: () {},
+                  child: Text("Sign In.", style: primaryText12600),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget circularFeatureRingSimple({
-    required String centerImage,
-    required List<String> surroundingImages, // must be 6
-  }) {
-    assert(surroundingImages.length == 6, 'Exactly 6 images required');
-
-    return SizedBox(
-      width: 300,
-      height: 300,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Outer Circular Border
-          Container(
-            width: 260,
-            height: 260,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.teal, width: 2),
-            ),
-          ),
-
-          // Center Image
-          Container(
-            width: 90,
-            height: 90,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage(centerImage),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-
-          // Surrounding Images (fixed positions)
-          Positioned(top: 0, child: circleImage(surroundingImages[0])),
-          Positioned(
-            top: 50,
-            right: 20,
-            child: circleImage(surroundingImages[1]),
-          ),
-          Positioned(
-            bottom: 60,
-            right: 15,
-            child: circleImage(surroundingImages[2]),
-          ),
-          Positioned(bottom: 0, child: circleImage(surroundingImages[3])),
-          Positioned(
-            bottom: 60,
-            left: 20,
-            child: circleImage(surroundingImages[4]),
-          ),
-          Positioned(
-            top: 50,
-            left: 20,
-            child: circleImage(surroundingImages[5]),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Reusable widget for small image containers
-  Widget circleImage(String imagePath) {
+  /// Circle wrapper for images
+  Widget _circleImage(String path) {
     return Container(
-      width: 60,
       height: 60,
-      padding: EdgeInsets.all(2.5), // (60 - 55) / 2 = 2.5 padding on all sides
+      width: 60,
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(color: Colors.teal, width: 2),
         color: Colors.white,
+        border: BoxBorder.all(width: 2, color: AppColors.primaryColor),
       ),
-      child: ClipOval(
-        child: Image.asset(imagePath, width: 55, height: 55, fit: BoxFit.cover),
-      ),
+      child: Image.asset(path),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-
 import 'package:hms/screens/onboarding/onboarding_screen.dart';
 import 'package:hms/screens/auth/signIn_screen.dart';
 import 'package:hms/screens/onboarding/welcome_screen.dart';
@@ -8,6 +7,7 @@ import 'package:hms/screens/onboarding/welcome_screen.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/core/app_images.dart';
 import 'package:hms/core/app_text_styles.dart';
+import 'package:hms/screens/onboarding/welcome_screen.dart' hide WelcomeScreen;
 import 'package:hms/utils/navigation_utils.dart';
 
 import '../../utils/size_utils.dart';
@@ -32,8 +32,7 @@ class _SplashFourScreenState extends State<SplashFourScreen> {
     });
 
     Timer(const Duration(milliseconds: 1200), () {
-      replaceScreen(context, OnboardingPage());
-      // nextscreen(context, SigninScreen());
+      replaceScreen(context, WelcomeScreen());
     });
   }
 
