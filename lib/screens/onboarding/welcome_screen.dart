@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/core/app_images.dart';
 import 'package:hms/core/app_text_styles.dart';
+import 'package:hms/screens/onboarding/onboarding_screen.dart';
+import 'package:hms/utils/navigation_utils.dart';
 import 'package:hms/utils/size_utils.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -111,7 +113,9 @@ class WelcomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  pushScreen(context, OnboardingScreen());
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

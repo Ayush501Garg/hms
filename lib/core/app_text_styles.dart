@@ -90,6 +90,11 @@ final TextStyle primaryText16600 = GoogleFonts.poppins(
   fontWeight: FontWeight.w600,
   color: AppColors.primaryColor,
 );
+final TextStyle primaryText20600 = GoogleFonts.poppins(
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
+  color: AppColors.primaryColor,
+);
 
 /// ✅ Newly added styles
 final TextStyle primaryText12600 = GoogleFonts.poppins(
@@ -141,6 +146,11 @@ final TextStyle greyText14400 = GoogleFonts.poppins(
 );
 final TextStyle greyText16400 = GoogleFonts.poppins(
   fontSize: 16,
+  fontWeight: FontWeight.w400,
+  color: AppColors.greyColor,
+);
+final TextStyle greyText18400 = GoogleFonts.poppins(
+  fontSize: 18,
   fontWeight: FontWeight.w400,
   color: AppColors.greyColor,
 );

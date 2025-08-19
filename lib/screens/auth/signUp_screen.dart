@@ -261,7 +261,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onChanged: (value) {},
                   validator: (value) {
                     if (value == null || value != passwordController.text) {
-                      showErrorToast(context, "Passwords do not match or password is empty");
+                      showErrorToast(
+                        context,
+                        "Passwords do not match or password is empty",
+                      );
                       return "";
                     }
                   },

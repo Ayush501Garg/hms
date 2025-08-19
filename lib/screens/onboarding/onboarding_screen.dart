@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:hms/screens/auth/forgot_password_option_screen.dart';
-import 'package:hms/screens/auth/signIn_screen.dart';
 import 'package:hms/core/app_colors.dart';
+import 'package:hms/screens/auth/signIn_screen.dart';
 import 'package:hms/utils/navigation_utils.dart';
 import 'package:hms/utils/size_utils.dart';
 import 'package:hms/widgets/custome_button.dart';
 
-class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({super.key});
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int currentPage = 0;
 
@@ -101,11 +100,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   void skip() {
-    goToPage(onboardingData.length - 1);
+    replaceScreen(context, SigninScreen());
   }
 
   void finishOnboarding() {
-    nextscreen(context, ForgotPasswordOptionScreen());
+    nextscreen(context, SigninScreen());
   }
 
   @override
