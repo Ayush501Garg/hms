@@ -175,13 +175,14 @@ double progress = (_currentStep + 1) / steps.length;
                   style: whiteText18200
                 ),
         ),
+        // hey rohit
 
             // 🔹 Optional Help Link
             TextButton(
               onPressed: () {},
               child: const Text("I need help"),
             ),
-            
+
             const SizedBox(height: 20),
           ],
         ),
