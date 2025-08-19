@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "252208006252",
+    "project_id": "lepster-8c606",
+    "storage_bucket": "lepster-8c606.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252208006252:android:c6716fb3f764c6ecd68449",
+        "android_client_info": {
+          "package_name": "com.example.lepster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252208006252-4419hs9327iltd8d4h69k3oqtdths6p5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lepster",
+            "certificate_hash": "7e554c75840538d0b501971ff940b00ad63d8206"
+          }
+        },
+        {
+          "client_id": "252208006252-ss5shrj5mlm3nt49bbmj69qut2uvjuig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeoXku3xiIQmzY9FIJE95E28krjOVSWYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252208006252-ss5shrj5mlm3nt49bbmj69qut2uvjuig.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "252208006252-48u3c96a5pu8vjbh2u3potq9r917vlq0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lepster"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

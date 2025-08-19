@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/core/app_images.dart';
 import 'package:hms/core/app_text_styles.dart';
+import 'package:hms/screens/auth/forgot_password_option_screen.dart';
 import 'package:hms/screens/auth/signUp_screen.dart';
 import 'package:hms/utils/navigation_utils.dart';
 import 'package:hms/utils/size_utils.dart';
@@ -17,7 +18,7 @@ class SigninScreen extends StatefulWidget {
 }
 
 class _SigninScreenState extends State<SigninScreen> {
-// <<<<<<< HEAD
+  // <<<<<<< HEAD
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool keepSignedIn = false;
@@ -144,7 +145,9 @@ class _SigninScreenState extends State<SigninScreen> {
                       ],
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        pushScreen(context, ForgotPasswordOptionScreen());
+                      },
                       child: const Text(
                         "Forgot Password",
                         style: TextStyle(color: Color(0xFF14B8A6)),
@@ -221,7 +224,6 @@ class _SigninScreenState extends State<SigninScreen> {
           ),
         ),
       ),
-    );  
+    );
   }
 }
-

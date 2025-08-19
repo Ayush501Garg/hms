@@ -53,8 +53,8 @@ final TextStyle blackText20400 = GoogleFonts.poppins(
 final TextStyle blackText22400 = GoogleFonts.poppins(
   fontSize: 22,
   fontWeight: FontWeight.w400,
-  color: Colors.black
-  );
+  color: Colors.black,
+);
 
 final TextStyle blackText24600 = GoogleFonts.poppins(
   fontSize: 24,
@@ -81,6 +81,11 @@ final TextStyle primaryText14600 = GoogleFonts.poppins(
 );
 final TextStyle primaryText16600 = GoogleFonts.poppins(
   fontSize: 16,
+  fontWeight: FontWeight.w600,
+  color: AppColors.primaryColor,
+);
+final TextStyle primaryText20600 = GoogleFonts.poppins(
+  fontSize: 20,
   fontWeight: FontWeight.w600,
   color: AppColors.primaryColor,
 );
@@ -118,6 +123,11 @@ final TextStyle greyText14400 = GoogleFonts.poppins(
 );
 final TextStyle greyText16400 = GoogleFonts.poppins(
   fontSize: 16,
+  fontWeight: FontWeight.w400,
+  color: AppColors.greyColor,
+);
+final TextStyle greyText18400 = GoogleFonts.poppins(
+  fontSize: 18,
   fontWeight: FontWeight.w400,
   color: AppColors.greyColor,
 );
