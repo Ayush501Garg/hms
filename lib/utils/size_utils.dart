@@ -16,8 +16,8 @@ SizedBox verticalSpace(height) {
 }
 
 /// Horizontal spacing (SizedBox)
- SizedBox horizontalSpace(width) {
-  return SizedBox(width: width*1.0);
+SizedBox horizontalSpace(width) {
+  return SizedBox(width: width * 1.0);
 }
 
 

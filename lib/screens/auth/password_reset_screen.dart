@@ -27,7 +27,7 @@ class PasswordResetSentScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Envelope image
-            Image.asset(AppImages.mail, height: 150),
+            Image.asset(AppImages.mail, height: screenHeight(context) * 0.2),
             verticalSpace(40),
 
             // Title
@@ -50,11 +50,13 @@ class PasswordResetSentScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: customElevatedButton(
+                // backgroundColor: AppColors.lightOrange,
+                // backgroundColor: AppColors.primaryColor,
                 title: "Open my email",
-                icon: Icons.email_outlined,
+                righticon: Icons.email_outlined,
                 onPressed: () {
                   // Handle open email
-                }, backgroundColor: null,
+                }, 
               ),
             ),
             verticalSpace(50),

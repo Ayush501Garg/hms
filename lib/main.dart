@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hms/screens/auth/signIn_screen.dart';
+import 'package:hms/screens/onboarding/onboarding_screen.dart';
+import 'package:hms/screens/profile/profile_intro_screen.dart';
 
 import 'screens/Splash/splash_screen.dart';
 
@@ -15,8 +17,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Hospital Management System',
-      // home: SigninScreen(),
-      home: SplashScreen(),
+      home: Profile_Intro_screen(),
+      // home: OnboardingPage(),
+      // home: SplashScreen(),
     );
   }
 }

@@ -86,7 +86,7 @@ class ForgotPasswordEmailScreen extends StatelessWidget {
               width: double.infinity,
               child: customElevatedButton(
                 title: 'Send password',
-                icon: Icons.arrow_forward,
+                righticon: Icons.arrow_forward,
                 onPressed: () {
                   pushScreen(context, PasswordResetSentScreen());
                 },

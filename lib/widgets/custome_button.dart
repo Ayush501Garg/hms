@@ -6,11 +6,12 @@ import 'package:hms/core/app_text_styles.dart';
 import 'package:hms/utils/size_utils.dart';
 
 Widget customElevatedButton({
-  required String title,
+  String? title,
+  Widget? child, // optional
   // Color textColor = Colors.white,
   IconData? icon, // optional
   VoidCallback? onPressed,
-  dynamic backgroundColor = AppColors.primaryColor, //= const Color(0xFF14B8A6),
+  Color backgroundColor = AppColors.primaryColor, //= const Color(0xFF14B8A6),
   double borderRadius = 10,
   double paddingVertical = 14,
   double paddingHorizontal = 24,
@@ -31,7 +32,8 @@ Widget customElevatedButton({
       ),
       elevation: 2,
     ),
-    child: Row(
+    child: child ?? 
+    Row(
       // Use min to fit content
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -42,20 +44,24 @@ Widget customElevatedButton({
         if (icon != null) ...[
           SizedBox(width: 8),
 
-          Text(title, style: whiteText16600),
+       
+
+          Text(title!, style: whiteText16600),
         ],
 
         if (imagepath != null) ...[
           Image.asset(imagepath, height: 20, width: 20),
           SizedBox(width: 8),
         ],
-        if (righticon != null) ...[Text(title, style: whiteText16600)],
+        if (righticon != null) ...[Text(title!, style: whiteText16600)],
         if (righticon != null) ...[
           SizedBox(width: 8),
           Icon(righticon, size: 20, color: Colors.white),
         ],
       ],
     ),
+ 
+ 
   );
 }
 

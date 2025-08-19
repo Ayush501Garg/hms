@@ -3,6 +3,7 @@ import 'package:hms/screens/auth/forgot_password_option_screen.dart';
 import 'package:hms/screens/auth/signIn_screen.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/utils/navigation_utils.dart';
+import 'package:hms/utils/size_utils.dart';
 import 'package:hms/widgets/custome_button.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -213,7 +214,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Container(
             height: 500,
             color: AppColors.lightprimaryColor,
-            child: Image.asset(imagepath, height: 300, width: 350),
+            child: Image.asset(imagepath, height:screenHeight(context) * 0.4 , width: screenWidth(context) ),
           ),
           Spacer(flex: 2),
           Padding(
