@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hms/screens/auth/signIn_screen.dart';
-import 'package:hms/screens/onboarding/onboarding_screen.dart';
 import 'package:hms/screens/profile/profile_intro_screen.dart';
-
-import 'screens/Splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
