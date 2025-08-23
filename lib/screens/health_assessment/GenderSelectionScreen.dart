@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hms/core/app_colors.dart';
 import 'package:hms/core/app_text_styles.dart';
+import 'package:hms/utils/navigation_utils.dart';
+import 'package:hms/utils/size_utils.dart';
 import 'package:hms/widgets/custome_button.dart';
+
+import 'WeightSelectionUI.dart';
 
 class GenderSelectionUI extends StatefulWidget {
   const GenderSelectionUI({super.key});
@@ -21,12 +25,12 @@ class _GenderSelectionUIState extends State<GenderSelectionUI> {
   }) {
     bool isSelected = selectedGender == value;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: GestureDetector(
         onTap: () => setState(() => selectedGender = value),
         child: Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
           margin: const EdgeInsets.only(bottom: 12),
           decoration: BoxDecoration(
             border: Border.all(
@@ -57,14 +61,14 @@ class _GenderSelectionUIState extends State<GenderSelectionUI> {
                       title,
                       style: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                         color: isSelected
                             ? AppColors.primaryColor
                             : Colors.black87,
                       ),
                     ),
                     if (subtitle != null) ...[
-                      const SizedBox(height: 4),
+                      verticalSpace(12),
                       Text(
                         subtitle,
                         style: TextStyle(
@@ -165,28 +169,26 @@ class _GenderSelectionUIState extends State<GenderSelectionUI> {
               child: customElevatedButton(
                 title: "Continue",
                 righticon: Icons.arrow_forward,
-                onPressed: () {},
+                onPressed: () {
+                  pushScreen(context, WeightSelectionUI());
+                },
               ),
             ),
             const SizedBox(height: 12),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: OutlinedButton.icon(
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: AppColors.primaryColor, width: 1.5),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                ),
+              child: customElevatedButton(
+                title: "Prefer not to say",
+                icon: Icons.close,
+                iconColor: AppColors.primaryColor,
+                titleStyle: primaryText16600,
+                borderColor: AppColors.primaryColor,
+                backgroundColor: AppColors.white,
+
                 onPressed: () {},
-                icon: Icon(Icons.close, color: AppColors.primaryColor),
-                label: Text(
-                  "Prefer not to say",
-                  style: TextStyle(fontSize: 16, color: AppColors.primaryColor),
-                ),
               ),
             ),
+
             const SizedBox(height: 20),
           ],
         ),
