@@ -5,6 +5,13 @@ class AppColors {
   static const Color mediumPrimaryColor = Color(0xFF4DDACF);
   static const Color lightprimaryColor = Color(0xFFE0F7F4);
   static const Color white = Color(0xFFFFFFFF);
+
+  // green color
+
+  static const Color primaryGreen = Color(0xFF16A34A); // dark/primary green
+  static const Color mediumGreen = Color(0xFF22C55E); // medium/normal green
+  static const Color lightGreen = Color(0xFFBBF7D0); // light/pale green
+
   static const Color black87 = Colors.black87; // added for body text
 
   static const Color greyColor = Color(0xFF6B7280); // Grey used in text

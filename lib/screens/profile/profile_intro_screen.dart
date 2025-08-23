@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hms/core/app_text_styles.dart';
 import 'package:hms/screens/profile/profile_identify_screen.dart';
+import 'package:hms/screens/profile/upload_image_screen.dart';
+
 import 'package:hms/utils/size_utils.dart';
 import 'package:hms/widgets/custome_button.dart';
 
@@ -49,7 +51,8 @@ int _currentStep = 0;
     } else {
 
       Navigator.push(context,
-      MaterialPageRoute(builder: (context) => const Profile_Identify_screen()));
+      MaterialPageRoute(builder: (context) => const ProfileSetupScreen()));
+      // MaterialPageRoute(builder: (context) => const Profile_Identify_screen()));
       // Last step reached -> Navigate to dashboard/home
      
     }
@@ -150,23 +153,23 @@ double progress = (_currentStep + 1) / steps.length;
             const Spacer(),
 
             // 🔹 Bottom Button
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.teal,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                onPressed: _nextStep,
-                child: Text(
-                  steps[_currentStep]["button"],
-                  style: whiteText18200
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(16.0),
+            //   child: ElevatedButton(
+            //     style: ElevatedButton.styleFrom(
+            //       backgroundColor: Colors.teal,
+            //       minimumSize: const Size(double.infinity, 50),
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(12),
+            //       ),
+            //     ),
+            //     onPressed: _nextStep,
+            //     child: Text(
+            //       steps[_currentStep]["button"],
+            //       style: whiteText18200
+            //     ),
+            //   ),
+            // ),
 
         customElevatedButton(
          onPressed: _nextStep,
