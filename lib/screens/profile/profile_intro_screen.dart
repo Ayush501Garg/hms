@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hms/core/app_text_styles.dart';
 import 'package:hms/screens/profile/profile_identify_screen.dart';
-import 'package:hms/utils/size_utils.dart';
 import 'package:hms/widgets/custome_button.dart';
 
 class Profile_Intro_screen extends StatefulWidget {
@@ -12,12 +11,9 @@ class Profile_Intro_screen extends StatefulWidget {
 }
 
 class _Profile_Intro_screenState extends State<Profile_Intro_screen> {
+  int _currentStep = 0;
 
-
-int _currentStep = 0;
-
-
- final List<Map<String, dynamic>> steps = [
+  final List<Map<String, dynamic>> steps = [
     {
       "title": "Let's Set Up Your Profile & Security",
       "subtitle":
@@ -41,25 +37,25 @@ int _currentStep = 0;
     },
   ];
 
-   void _nextStep() {
+  void _nextStep() {
     if (_currentStep < steps.length - 1) {
       setState(() {
         _currentStep++;
       });
     } else {
-
-      Navigator.push(context,
-      MaterialPageRoute(builder: (context) => const Profile_Identify_screen()));
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Profile_Identify_screen(),
+        ),
+      );
       // Last step reached -> Navigate to dashboard/home
-     
     }
   }
 
   @override
   Widget build(BuildContext context) {
-
-
-double progress = (_currentStep + 1) / steps.length;
+    double progress = (_currentStep + 1) / steps.length;
 
     return Scaffold(
       body: SafeArea(
@@ -75,10 +71,10 @@ double progress = (_currentStep + 1) / steps.length;
                     children: [
                       CircleAvatar(
                         radius: 16,
-                        backgroundColor:
-                            index <= _currentStep ? Colors.teal : Colors.grey[300],
+                        backgroundColor: index <= _currentStep
+                            ? Colors.teal
+                            : Colors.grey[300],
                         child: Icon(
-                          
                           steps[index]["icon"],
                           size: 18,
                           color: Colors.white,
@@ -89,8 +85,8 @@ double progress = (_currentStep + 1) / steps.length;
                         index == 0
                             ? "Assessment"
                             : index == 1
-                                ? "Personal Info"
-                                : "Completion",
+                            ? "Personal Info"
+                            : "Completion",
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -98,7 +94,7 @@ double progress = (_currentStep + 1) / steps.length;
                               ? Colors.teal
                               : Colors.grey,
                         ),
-                      )
+                      ),
                     ],
                   );
                 }),
@@ -120,11 +116,7 @@ double progress = (_currentStep + 1) / steps.length;
             const SizedBox(height: 50),
 
             // 🔹 Icon
-            Icon(
-              steps[_currentStep]["icon"],
-              size: 80,
-              color: Colors.teal,
-            ),
+            Icon(steps[_currentStep]["icon"], size: 80, color: Colors.teal),
             const SizedBox(height: 30),
 
             // 🔹 Title
@@ -163,31 +155,24 @@ double progress = (_currentStep + 1) / steps.length;
                 onPressed: _nextStep,
                 child: Text(
                   steps[_currentStep]["button"],
-                  style: whiteText18200
+                  style: whiteText18200,
                 ),
               ),
             ),
 
-        customElevatedButton(
-         onPressed: _nextStep,
-                child: Text(
-                  steps[_currentStep]["button"],
-                  style: whiteText18200
-                ),
-        ),
-        // hey rohit
+            customElevatedButton(
+              onPressed: _nextStep,
+              child: Text(steps[_currentStep]["button"], style: whiteText18200),
+            ),
+            // hey rohit
 
             // 🔹 Optional Help Link
-            TextButton(
-              onPressed: () {},
-              child: const Text("I need help"),
-            ),
+            TextButton(onPressed: () {}, child: const Text("I need help")),
 
             const SizedBox(height: 20),
           ],
         ),
       ),
     );
-  
   }
 }
