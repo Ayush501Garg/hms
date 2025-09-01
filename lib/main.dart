@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hms/screens/Splash/splash_screen.dart';
+import 'package:hms/screens/health_assessment/setup_account_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Hospital Management System',
       // home: SetupAccountScreen(),
       // home: OnboardingPage(),
-      home: SplashScreen(),
+      home: SetupAccountScreen(),
+      // home: SplashScreen(),
     );
   }
 }

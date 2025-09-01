@@ -29,7 +29,7 @@ class CustomTextField extends StatefulWidget {
     this.validator, // ✅ constructor me bhi add
     this.margin,
     this.padding,
-    this.maxLines = 2,
+    this.maxLines = 1,
     this.minLines = 1, 
     // this.style,
   }) : super(key: key);

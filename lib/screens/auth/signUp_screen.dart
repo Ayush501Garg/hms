@@ -122,13 +122,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return null; // ✅ No error
   }
 
+  String? errorMessage;
+
   void onSubmit() {
-    String? errorMessage = validateFields();
+    errorMessage = validateFields();
     if (errorMessage != null) {
       replaceScreen(context, MainPage());
+    } else {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(errorMessage)));
+      ).showSnackBar(SnackBar(content: Text(errorMessage!)));
       return;
     }
 
@@ -279,7 +282,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   righticon: Icons.login,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      onSubmit();
+                     replaceScreen(context, MainPage());
                     }
                     // Handle sign up
                   },
@@ -290,7 +293,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 // Already have account
                 GestureDetector(
                   onTap: () {
-                    replaceScreen(context, SigninScreen());
+                    // replaceScreen(context, Mainscreen());
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

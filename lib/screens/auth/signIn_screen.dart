@@ -42,6 +42,8 @@ class _SigninScreenState extends State<SigninScreen> {
         context,
       ).showSnackBar(SnackBar(content: Text(errorMessage)));
       return;
+    } else {
+       replaceScreen(context, SignUpScreen());
     }
 
     // All good → Sign In process here
@@ -118,8 +120,9 @@ class _SigninScreenState extends State<SigninScreen> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       showErrorToast(context, "Password is required");
-                      return "";
+                      return "Password is required";
                     }
+                    return null;
                   },
                 ),
 

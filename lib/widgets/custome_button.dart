@@ -18,7 +18,7 @@ Widget customElevatedButton({
   double paddingVertical = 14,
   double paddingHorizontal = 24,
   IconData? righticon,
-  final String? imagepath, // optional
+  final String? imagepath,  // optional
 }) {
   return ElevatedButton(
     onPressed: onPressed,
@@ -60,6 +60,65 @@ Widget customElevatedButton({
   );
 }
 
+
+Widget customOutlinedButton({
+  String? title,
+  Widget? child, // optional custom child
+  IconData? icon, 
+  IconData? rightIcon,
+  String? imagePath,
+  VoidCallback? onPressed,
+  TextStyle? titleStyle,
+  Color? iconColor,
+  Color borderColor = const Color(0xFF14B8A6),
+  Color backgroundColor = Colors.transparent,
+  double borderRadius = 10,
+  double paddingVertical = 14,
+  double paddingHorizontal = 24,
+}) {
+  return OutlinedButton(
+    onPressed: onPressed,
+    style: OutlinedButton.styleFrom(
+      backgroundColor: backgroundColor,
+      side: BorderSide(color: borderColor, width: 1.5),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(borderRadius),
+      ),
+      padding: EdgeInsets.symmetric(
+        vertical: paddingVertical,
+        horizontal: paddingHorizontal,
+      ),
+    ),
+    child: child ??
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (icon != null) ...[
+              Icon(icon, size: 20, color: iconColor ?? borderColor),
+              SizedBox(width: 8),
+            ],
+            if (imagePath != null) ...[
+              Image.asset(imagePath, height: 20, width: 20),
+              SizedBox(width: 8),
+            ],
+            if (title != null)
+              Text(
+                title,
+                style: titleStyle ??
+                    TextStyle(
+                      color: borderColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+            if (rightIcon != null) ...[
+              SizedBox(width: 8),
+              Icon(rightIcon, size: 20, color: iconColor ?? borderColor),
+            ],
+          ],
+        ),
+  );
+}
 Widget circleArrowButton({
   required IconData icon,
   required VoidCallback onPressed,

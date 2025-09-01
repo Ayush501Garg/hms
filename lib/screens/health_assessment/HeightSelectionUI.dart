@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hms/core/app_text_styles.dart';
+import 'package:hms/screens/health_assessment/blood_type_screen.dart';
 import 'package:hms/utils/size_utils.dart';
 
 import '../../utils/navigation_utils.dart';
@@ -89,7 +90,8 @@ class _HeightSelectionUIState extends State<HeightSelectionUI> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  CupertinoPicker(
+                  
+                 CupertinoPicker(
                     scrollController: selectedUnit == "cm"
                         ? cmController
                         : inchController,
@@ -120,8 +122,8 @@ class _HeightSelectionUIState extends State<HeightSelectionUI> {
                     ),
                   ),
 
-                  // 🔹 Highlight Box
-                  Container(
+                 
+                 Container(
                     height: screenHeight(context)*0.1,
                     width: screenWidth(context)*0.8,
                     decoration: BoxDecoration(
@@ -140,6 +142,9 @@ class _HeightSelectionUIState extends State<HeightSelectionUI> {
                       ),
                     ),
                   ),
+                 
+                  // 🔹 Highlight Box
+                  
 
                 ],
               ),
@@ -153,10 +158,16 @@ class _HeightSelectionUIState extends State<HeightSelectionUI> {
                 title: "Continue",
                 righticon: Icons.arrow_forward,
                 onPressed: () {
-                  pushScreen(context, HeightSelectionUI());
+                  pushScreen(context, BloodTypeScreen());
                 },
               ),
             ),
+
+            const SizedBox(height: 30),
+
+            
+
+
           ],
         ),
       ),
